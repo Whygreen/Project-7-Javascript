@@ -11,7 +11,7 @@ test('POST status and parse response', async () => {
 			{ name: 'Fresh Food', workingHours: { start: 8, end: 23 } },
 			{ name: 'Food City', workingHours: { start: 8, end: 21 } },
 			{ name: 'Big World', workingHours: { start: 5, end: 20 } }
-		  ]);
+		]);
 		// console.log(data);	
 	} catch (error) {
 		console.error(error);

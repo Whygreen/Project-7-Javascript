@@ -46,7 +46,7 @@ test('POST parse response and check response body', async () => {
 				'Food City': { 'Sprite Soft Drink': true, 'Fruit Power Juice - Litchi': true },     
 				'Big World': { 'Fruit Power Juice - Litchi': false, 'Sprite Soft Drink': false },   
 				'Fresh Food': { 'Sprite Soft Drink': true, 'Fruit Power Juice - Litchi': true }     
-			  })
+			})
 	} catch (error) {
 		console.error(error);
 	}
