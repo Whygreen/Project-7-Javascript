@@ -1,9 +1,9 @@
-// eslint-disable-next-line no-undef
 const config = require('../config');
 
-test('DELETE status check', async () => {
+test('should display response code 200', async () => {
+	let response;
     try {
-		const response = await fetch(`${config.API_URL}/api/v1/kits/7`, {
+		response = await fetch(`${config.API_URL}/api/v1/kits/7`, {
 			method: 'DELETE',
 		});
 		expect(response.status).toBe(200);
@@ -12,12 +12,14 @@ test('DELETE status check', async () => {
 	}
 });
 
-test('DELETE parse response and check response body', async () => {
+test('should delete kit number 7 and return a response that matches the body', async () => {
+	let response;
+	let data;
     try {
-		const response = await fetch(`${config.API_URL}/api/v1/kits/7`, {
+		response = await fetch(`${config.API_URL}/api/v1/kits/7`, {
 			method: 'DELETE',
 		});
-		const data = await response.json();
+		data = await response.json();
 		expect(data).toEqual({ ok: true });
 	} catch (error) {
 		console.error(error);

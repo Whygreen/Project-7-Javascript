@@ -1,11 +1,11 @@
-// eslint-disable-next-line no-undef
 const config = require('../config');
 
 const requestBody = {"price": 175}
 
-test('PUT status check', async () => {
+test('should display response code 200', async () => {
+	let response;
     try {
-		const response = await fetch(`${config.API_URL}/api/v1/products/7`, {
+		response = await fetch(`${config.API_URL}/api/v1/products/7`, {
 			method: 'PUT',
 			headers: {
 			'Content-Type': 'application/json'
@@ -18,16 +18,18 @@ test('PUT status check', async () => {
 	}
 });
 
-test('PUT parse response and check response body', async () => {
+test('should change the price of a product a response that matches the body', async () => {
+	let response;
+	let data;
     try {
-		const response = await fetch(`${config.API_URL}/api/v1/products/7`, {
+		response = await fetch(`${config.API_URL}/api/v1/products/7`, {
 			method: 'PUT',
 			headers: {
 			'Content-Type': 'application/json'
 			},
 			body: JSON.stringify(requestBody)
 		});
-		const data = await response.json();
+		data = await response.json();
 		expect(data).toEqual({ ok: true });
 	} catch (error) {
 		console.error(error);

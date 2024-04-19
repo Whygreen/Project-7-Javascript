@@ -1,8 +1,6 @@
-// eslint-disable-next-line no-undef
 const config = require('../config');
 
 const requestBody = {
-    // put your body here
 	"products": [
 		{
 			"id": 5,
@@ -14,9 +12,10 @@ const requestBody = {
 		}
 	]
 }
-test('POST status check', async () => {
+test('should display response code 200', async () => {
+	let response;
     try {
-		const response = await fetch(`${config.API_URL}/api/v1/warehouses/check`, {
+		response = await fetch(`${config.API_URL}/api/v1/warehouses/check`, {
 			method: 'POST',
 			headers: {
 			'Content-Type': 'application/json'
@@ -30,16 +29,18 @@ test('POST status check', async () => {
 	}
 });
 
-test('POST parse response and check response body', async () => {
+test('should return a list of warehouses contain the products from the body and matches the response body', async () => {
+	let response;
+	let data;
     try {
-		const response = await fetch(`${config.API_URL}/api/v1/warehouses/check`, {
+		response = await fetch(`${config.API_URL}/api/v1/warehouses/check`, {
 			method: 'POST',
 			headers: {
 			'Content-Type': 'application/json'
 			},
 			body: JSON.stringify(requestBody)
 		});
-		const data = await response.json();
+		data = await response.json();
 		expect(data).toEqual(
 			{
 				'Everything You Need': { 'Sprite Soft Drink': true, 'Fruit Power Juice - Litchi': false },
