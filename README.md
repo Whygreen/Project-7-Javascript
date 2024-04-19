@@ -3,4 +3,6 @@ In this project I made HHTP requests with javascript to test Urban Grocers endpo
 For this project, the technologies and techniques i used are javascript and jest.
 Before we begin testing, we need to install the project's dependencies with npm install.
 Then we deployed the Urban Grocers server and copied it into the config.js file by replacing the template URL. 
-To run the test suite just use 'npm test'
+To run the test suite just use 'npm test
+You can also add console.log to each test to compare the expected result to the actual result
+Then use npm run lint to check for any syntax error

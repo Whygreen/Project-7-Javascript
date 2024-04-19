@@ -14,27 +14,26 @@ const requestBody = {
 	]
 }
 test('should display response code 200', async () => {
-	let response;
+	let actualStatusCode;
     try {
-		response = await fetch(`${config.API_URL}/api/v1/warehouses/check`, {
+	const response = await fetch(`${config.API_URL}/api/v1/warehouses/check`, {
 			method: 'POST',
 			headers: {
 			'Content-Type': 'application/json'
 			},
 			body: JSON.stringify(requestBody)
 		});
-		expect(response.status).toBe(200);
-		
+	actualStatusCode = response.status	
 	} catch (error) {
 		console.error(error);
 	}
+	expect(actualStatusCode).toBe(200);
 });
 
 test('should return a list of warehouses contain the products from the body and matches the response body', async () => {
-	let response;
 	let data;
     try {
-		response = await fetch(`${config.API_URL}/api/v1/warehouses/check`, {
+	const response = await fetch(`${config.API_URL}/api/v1/warehouses/check`, {
 			method: 'POST',
 			headers: {
 			'Content-Type': 'application/json'
