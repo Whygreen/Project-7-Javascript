@@ -1,6 +1,7 @@
+// eslint-disable-next-line no-undef
 const config = require('../config');
 
-test('should display response code 200 ', async () => {
+test('should display response code 200', async () => {
 	let response; 
 	try {
 		response = await fetch(`${config.API_URL}/api/v1/warehouses`);
